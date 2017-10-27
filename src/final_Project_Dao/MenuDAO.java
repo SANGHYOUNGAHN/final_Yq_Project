@@ -47,6 +47,74 @@ public class MenuDAO {
 		return conn;
 	}
 	
+	//server에 사용할 것
+	public List<MenuVO> serverMenu(){
+		
+		
+		String sql="select * from menu";
+		List<MenuVO>serverMenuList = new ArrayList<MenuVO>();
+		
+		
+		Connection conn = null;
+		PreparedStatement pstmt =null;
+		ResultSet rs = null;
+		getCalender gc = new getCalender();
+		
+		Date d = new Date();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String a = df.format(d);
+		
+		try{
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+					if(rs.getString("mn_date").equals(gc.cc()))
+					{
+						MenuVO mVo = new MenuVO();
+						
+						mVo.setMn_date(rs.getString("mn_date"));
+						mVo.setChain(rs.getString("chain"));
+						mVo.setMn_type(rs.getString("mn_type"));
+						mVo.setMn_name(rs.getString("mn_name"));
+						mVo.setMn_price(rs.getInt("mn_price"));
+						mVo.setMn_sold(rs.getString("mn_sold"));
+						serverMenuList.add(mVo); // Arraylist에 객체 추가
+					}
+				} // while문 끝
+			
+			
+			
+		}catch(Exception e){
+			
+			e.printStackTrace();
+		}finally{
+			
+			
+		}try{
+			if (rs != null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		return serverMenuList;
+	}
+	
+	
+	
+	
+	
 
 	//인성관일일메뉴(메인화면)
 	public List<MenuVO> selectInSungMenu(){
