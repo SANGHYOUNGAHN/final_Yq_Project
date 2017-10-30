@@ -16,13 +16,13 @@
 
 	for (int i = 0; i < menuWeekList.size(); i++) {
 
-		JSONObject menuObj = new JSONObject();
-		menuObj.put("mn_date", menuWeekList.get(i).getMn_date());
-		menuObj.put("chain", menuWeekList.get(i).getChain());
-		menuObj.put("mn_type", menuWeekList.get(i).getMn_type());
-		menuObj.put("mn_name", menuWeekList.get(i).getMn_name());
-		menuObj.put("mn_price", menuWeekList.get(i).getMn_price());
-		menuArray.add(menuObj);
+		JSONObject menuWeekObj = new JSONObject();
+		menuWeekObj.put("mn_date", menuWeekList.get(i).getMn_date());
+		menuWeekObj.put("chain", menuWeekList.get(i).getChain());
+		menuWeekObj.put("mn_type", menuWeekList.get(i).getMn_type());
+		menuWeekObj.put("mn_name", menuWeekList.get(i).getMn_name());
+		menuWeekObj.put("mn_price", menuWeekList.get(i).getMn_price());
+		menuArray.add(menuWeekObj);
 
 	}
 

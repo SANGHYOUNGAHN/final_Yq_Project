@@ -7,6 +7,18 @@
 <%@ page import="final_Project_Dao.StudentDAO" %>
 <%@ page import="org.json.simple.JSONObject" %>
 <%@ page import="java.util.List" %>
+
+
+<% 
+
+request.setCharacterEncoding("UTF-8");
+
+String and_id =request.getParameter("stu_id"); 
+System.out.println(and_id);
+%>
+	
+	
+
 <% 
 	
 	StudentDAO sDao = StudentDAO.getInstance();
@@ -31,3 +43,6 @@
 	out.print(jArr);
 
 	%>
+	
+
+

@@ -9,6 +9,7 @@
 
 
 <%
+	
 	MenuDAO mDao = MenuDAO.getInstance();
 	List<MenuVO> menuServerList = mDao.serverMenu();
 
