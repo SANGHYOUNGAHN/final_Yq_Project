@@ -14,6 +14,8 @@ import javax.sql.DataSource;
 
 import final_Project_Vo.ViewRcgVO;
 import final_Project_Vo.ViewUseVO;
+import final_Project_Vo.appViewRcgVO;
+import final_Project_Vo.appViewUseVO;
 
 public class ViewRcgDAO {
 
@@ -36,6 +38,179 @@ public class ViewRcgDAO {
 		conn = ds.getConnection();
 		return conn;
 	}
+	
+	/*
+	 * 
+	 * app -> view Recharge 
+	 * Week , Month , ThreeMonth
+	 * 
+	 */
+	
+	public List<appViewRcgVO> appWeekCheckRcg(String and_id) {
+
+		String sql = "select * from foruse  where f_use='Recharge' and  stu_id = ? and date > date(subdate(curdate(), interval 7 day)) order by date";
+		List<appViewRcgVO> appWeekList = new ArrayList<appViewRcgVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			
+			
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, and_id);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				{
+					appViewRcgVO ucVo = new appViewRcgVO();
+
+					ucVo.setStu_id(rs.getString("stu_id"));
+					ucVo.setDate(rs.getString("date"));
+					ucVo.setChain(rs.getString("chain"));
+					ucVo.setMn_name(rs.getString("mn_name"));
+					ucVo.setMn_price(rs.getString("mn_price"));
+					ucVo.setF_use(rs.getString("f_use"));
+					appWeekList.add(ucVo);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		return appWeekList;
+	}
+
+	// 한달짜리 리스트
+	public List<appViewRcgVO> appMonthCheckRcg(String and_id) {
+
+		String sql = "select * from foruse  where f_use='Recharge' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
+		List<appViewRcgVO> appMonthList = new ArrayList<appViewRcgVO>();
+		
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, and_id);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				{
+					appViewRcgVO ucmVo = new appViewRcgVO();
+
+					ucmVo.setStu_id(rs.getString("stu_id"));
+					ucmVo.setDate(rs.getString("date"));
+					ucmVo.setChain(rs.getString("chain"));
+					ucmVo.setMn_name(rs.getString("mn_name"));
+					ucmVo.setMn_price(rs.getString("mn_price"));
+					ucmVo.setF_use(rs.getString("f_use"));
+					appMonthList.add(ucmVo);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+
+		try {
+
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return appMonthList;
+
+	}
+
+	// 3개월
+	public List<appViewRcgVO> appThMonthCheckRcg(String and_id) {
+
+		String sql = "select * from foruse  where f_use='Recharge' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
+		List<appViewRcgVO> appThMonthList = new ArrayList<appViewRcgVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, and_id);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				{
+					appViewRcgVO ucVo = new appViewRcgVO();
+
+					ucVo.setStu_id(rs.getString("stu_id"));
+					ucVo.setDate(rs.getString("date"));
+					ucVo.setChain(rs.getString("chain"));
+					ucVo.setMn_name(rs.getString("mn_name"));
+					ucVo.setMn_price(rs.getString("mn_price"));
+					ucVo.setF_use(rs.getString("f_use"));
+					appThMonthList.add(ucVo);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		return appThMonthList;
+
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	public List<ViewRcgVO>checkRcg(HttpServletRequest request){
 		

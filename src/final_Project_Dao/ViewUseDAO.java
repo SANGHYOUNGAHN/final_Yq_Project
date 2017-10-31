@@ -206,57 +206,7 @@ public class ViewUseDAO {
 
 	}
 	
-	public List<appViewUseVO> appMainCheckUse(String and_id) {
-
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ?  order by date desc Limit 7";
-		List<appViewUseVO> appMainList = new ArrayList<appViewUseVO>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-
-		try {
-			conn = getConnection();
-			pstmt = conn.prepareStatement(sql);
-
-			pstmt.setString(1, and_id);
-			rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				{
-					appViewUseVO ucVo = new appViewUseVO();
-
-					ucVo.setStu_id(rs.getString("stu_id"));
-					ucVo.setDate(rs.getString("date"));
-					ucVo.setChain(rs.getString("chain"));
-					ucVo.setMn_name(rs.getString("mn_name"));
-					ucVo.setMn_price(rs.getString("mn_price"));
-					ucVo.setF_use(rs.getString("f_use"));
-					appMainList.add(ucVo);
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-
-		} finally {
-
-			try {
-
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		}
-
-		return appMainList;
-
-	}
+	
 
 	/*
 	 * 

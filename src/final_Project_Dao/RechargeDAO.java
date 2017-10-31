@@ -22,6 +22,7 @@ import final_Project_Servlet.StudentLoginServlet;
 import final_Project_Vo.ForuseVO;
 import final_Project_Vo.RechargeVO;
 import final_Project_Vo.StudentVO;
+import final_Project_Vo.appViewRcgVO;
 
 public class RechargeDAO {
 	
@@ -54,6 +55,68 @@ public class RechargeDAO {
 		conn = ds.getConnection();
 		return conn;
 	}
+	
+	
+	
+	/*
+	 * 
+	 * Search -> Recharge
+	 * stu_id, date
+	 * 
+	 *
+	 */
+	public List<ForuseVO> appSearchRecharge(String and_id , String date){
+		
+		String sql ="select sum(mn_price) as rechargeTotal from foruse where stu_id = ? and f_use='Recharge' and date LIKE concat(?,'%')"; 
+		
+		List<ForuseVO> searchList = new ArrayList<ForuseVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try{
+			
+				conn=getConnection();
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, and_id);
+				pstmt.setString(2, date);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()){
+					
+					
+					ForuseVO fVO = new ForuseVO();
+					
+					fVO.setSumRcgTot(rs.getInt("rechargeTotal"));
+					searchList.add(fVO);
+					
+					
+				}
+			
+			
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return searchList;
+		
+
+	}
+	
+	
+	
+	
 	
 	
 	//버튼눌럿을때 value값 받아오기 
