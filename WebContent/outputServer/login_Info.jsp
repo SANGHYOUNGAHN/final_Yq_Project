@@ -22,19 +22,19 @@ System.out.println(and_id);
 <% 
 	
 	StudentDAO sDao = StudentDAO.getInstance();
-	List<StudentVO>userList = sDao.userList();
+	List<StudentVO>loginList = sDao.appLoginList(and_id);
 	
 	
 	JSONArray jArr = new JSONArray();
 	
 	
-	for(int i=0; i<userList.size(); i++){
+	for(int i=0; i<loginList.size(); i++){
 		
 		JSONObject userObject = new JSONObject();
-		userObject.put("stu_id",userList.get(i).getStu_id());
-		userObject.put("stu_pw",userList.get(i).getStu_pw());
-		userObject.put("stu_name",userList.get(i).getStu_name());
-		userObject.put("stu_change",userList.get(i).getStu_change());
+		userObject.put("stu_id",loginList.get(i).getStu_id());
+		userObject.put("stu_pw",loginList.get(i).getStu_pw());
+		userObject.put("stu_name",loginList.get(i).getStu_name());
+		userObject.put("stu_change",loginList.get(i).getStu_change());
 		jArr.add(userObject);
 		
 		

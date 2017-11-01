@@ -1,12 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+	pageEncoding="UTF-8"%>
+<%@ page import="org.json.simple.JSONArray"%>
+<%@ page import="final_Project_Dao.ForuseDAO"%>
+<%@ page import="final_Project_Vo.ForuseVO"%>
+<%@ page import="org.json.simple.JSONObject"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page%>
 
-</body>
-</html>
+
+<%
+	request.setCharacterEncoding("UTF-8");
+	String and_id = request.getParameter("stu_id");
+	System.out.println(and_id);
+
+	String date = request.getParameter("date");
+	System.out.println(date);
+
+	ForuseDAO viewDao = ForuseDAO.getInstance();
+	List<ForuseVO> totUseList = viewDao.appSearchForuse(and_id, date);
+	JSONArray totUseArray = new JSONArray();
+
+	for (int i = 0; i < totUseList.size(); i++) {
+
+		JSONObject totUseObj = new JSONObject();
+
+		totUseObj.put("sumTot", totUseList.get(i).getSumTot());
+		totUseArray.add(totUseObj);
+
+	}
+
+	out.print(totUseArray);
+%>

@@ -208,7 +208,12 @@ public class ViewRcgDAO {
 	
 	
 	
-	
+	/*
+	 * JSP 웹페이지에서 작
+	 * 
+	 * 
+	 * 
+	 */
 	
 	
 	

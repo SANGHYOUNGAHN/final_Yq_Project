@@ -48,6 +48,68 @@ public class ForuseDAO {
 
 		return stu_id;
 	}
+	
+	/*
+	 *  In app -> total use price 
+	 * 
+	 * 
+	 */
+	
+	
+	public List<ForuseVO> appSearchForuse(String and_id, String date){
+		
+		String sql = "select sum(mn_price) as foruseTotal from foruse where stu_id = ? and f_use='use' and date LIKE concat(?,'%')  ";
+
+		List<ForuseVO> searchList = new ArrayList<ForuseVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		try{
+			
+			conn=getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, and_id);
+			pstmt.setString(2, date);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				ForuseVO fVo = new ForuseVO();
+				
+				fVo.setSumTot(rs.getInt("foruseTotal"));
+				searchList.add(fVo);
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		
+		return searchList;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public void appBuyMenu(String buy_id, String mn_name, String chain, String mn_price) {
 

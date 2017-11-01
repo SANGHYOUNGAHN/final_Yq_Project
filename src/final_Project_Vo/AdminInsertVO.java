@@ -8,7 +8,7 @@ public class AdminInsertVO {
 	private	int mn_price;
 	private String chain;
 	private String mn_type;
-	
+	private String mn_sold;
 	
 
 	
@@ -47,6 +47,12 @@ public class AdminInsertVO {
 	}
 	public void setMn_type(String mn_type) {
 		this.mn_type = mn_type;
+	}
+	public String getMn_sold() {
+		return mn_sold;
+	}
+	public void setMn_sold(String mn_sold) {
+		this.mn_sold = mn_sold;
 	}
 	
 	
