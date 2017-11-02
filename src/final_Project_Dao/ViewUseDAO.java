@@ -41,6 +41,63 @@ public class ViewUseDAO {
 
 	/*
 	 * 
+	 * Use AppServer (admin)
+	 * 
+	 * 
+	 */
+	public List<appViewUseVO> appfindUse(String and_id) {
+
+		String sql = "select * from foruse where stu_id= ?";
+
+		List<appViewUseVO> appfindList = new ArrayList<appViewUseVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			conn = getConnection();
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, and_id);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				{
+					appViewUseVO ucVo = new appViewUseVO();
+
+					ucVo.setStu_id(rs.getString("stu_id"));
+					ucVo.setDate(rs.getString("date"));
+					ucVo.setChain(rs.getString("chain"));
+					ucVo.setMn_name(rs.getString("mn_name"));
+					ucVo.setMn_price(rs.getString("mn_price"));
+					ucVo.setF_use(rs.getString("f_use"));
+					appfindList.add(ucVo);
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return appfindList;
+	}
+
+	/*
+	 * 
 	 * Use AppServer
 	 * 
 	 * 
@@ -56,8 +113,7 @@ public class ViewUseDAO {
 		ResultSet rs = null;
 
 		try {
-			
-			
+
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 
@@ -105,8 +161,7 @@ public class ViewUseDAO {
 
 		String sql = "select * from foruse  where f_use='사용' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
 		List<appViewUseVO> appMonthList = new ArrayList<appViewUseVO>();
-		
-		
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -135,7 +190,7 @@ public class ViewUseDAO {
 
 		} finally {
 
-		try {
+			try {
 
 				if (rs != null)
 					rs.close();
@@ -205,8 +260,6 @@ public class ViewUseDAO {
 		return appThMonthList;
 
 	}
-	
-	
 
 	/*
 	 * 
