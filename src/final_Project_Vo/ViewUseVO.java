@@ -7,12 +7,30 @@ public class ViewUseVO {
 	private String mn_name;
 	private int mn_price;
 	private String f_use;
+	private String appTot;
+
 	private int insungTot;
 	private int hwanTot;
 	private int dormTot;
 	private int insungAward;
 	private int hwanAward;
 	private int dormAward;
+	private int getAward;
+	
+	
+	public int getGetAward() {
+		return getAward;
+	}
+	public void setGetAward(int getAward) {
+		this.getAward = getAward;
+	}
+	public String getAppTot() {
+		return appTot;
+	}
+	public void setAppTot(String appTot) {
+		this.appTot = appTot;
+	}
+	
 	public String getStu_id() {
 		return stu_id;
 	}

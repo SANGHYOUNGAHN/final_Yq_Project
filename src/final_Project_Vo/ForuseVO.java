@@ -8,8 +8,17 @@ public class ForuseVO {
 	private String mn_name;
 	private int mn_price;
 	private String f_use;
+	private String getAward;
 	private int sumTot;
 	private int sumRcgTot;
+	
+	
+	public String getGetAward() {
+		return getAward;
+	}
+	public void setGetAward(String getAward) {
+		this.getAward = getAward;
+	}
 	
 	public int getSumTot() {
 		return sumTot;

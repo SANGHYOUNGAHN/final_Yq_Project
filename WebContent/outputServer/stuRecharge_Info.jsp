@@ -16,7 +16,8 @@
 	
 	<%ForuseDAO fDao = ForuseDAO.getInstance(); 
 	  fDao.appStuRecharge(and_mid, and_rcgPrice);
-	 %>
+	 
+	%>
 	
 	
 	

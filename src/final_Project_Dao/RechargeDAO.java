@@ -86,12 +86,9 @@ public class RechargeDAO {
 				
 				while(rs.next()){
 					
-					
 					ForuseVO fVO = new ForuseVO();
-					
 					fVO.setSumRcgTot(rs.getInt("rechargeTotal"));
 					searchList.add(fVO);
-					
 					
 				}
 			
