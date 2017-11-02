@@ -67,7 +67,7 @@ public class RechargeDAO {
 	 */
 	public List<ForuseVO> appSearchRecharge(String and_id , String date){
 		
-		String sql ="select sum(mn_price) as rechargeTotal from foruse where stu_id = ? and f_use='Recharge' and date LIKE concat(?,'%')"; 
+		String sql ="select sum(mn_price) as rechargeTotal from foruse where stu_id = ? and f_use='충전' and date LIKE concat(?,'%')"; 
 		
 		List<ForuseVO> searchList = new ArrayList<ForuseVO>();
 		Connection conn = null;
@@ -132,7 +132,7 @@ public class RechargeDAO {
 		String loginUser1 = (String)session.getAttribute("loginUser1");
 	
 		
-		String sql ="select sum(mn_price) as rechargeTotal from foruse where stu_id = ? and f_use='recharge' and date LIKE concat(?,'%')  ";
+		String sql ="select sum(mn_price) as rechargeTotal from foruse where stu_id = ? and f_use='충전' and date LIKE concat(?,'%')  ";
 		
 		Connection conn = null;
 		PreparedStatement pstmt =null;

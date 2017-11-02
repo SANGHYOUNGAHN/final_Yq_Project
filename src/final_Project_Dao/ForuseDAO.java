@@ -58,7 +58,7 @@ public class ForuseDAO {
 	
 	public List<ForuseVO> appSearchForuse(String and_id, String date){
 		
-		String sql = "select sum(mn_price) as foruseTotal from foruse where stu_id = ? and f_use='use' and date LIKE concat(?,'%')  ";
+		String sql = "select sum(mn_price) as foruseTotal from foruse where stu_id = ? and f_use='사용' and date LIKE concat(?,'%')  ";
 
 		List<ForuseVO> searchList = new ArrayList<ForuseVO>();
 		Connection conn = null;
@@ -114,7 +114,7 @@ public class ForuseDAO {
 	public void appBuyMenu(String buy_id, String mn_name, String chain, String mn_price) {
 
 		int menu_Price = Integer.parseInt(mn_price);
-		String sql = "insert into foruse(stu_id, date, chain, mn_name,mn_price, f_use) values(?,?,?,?,?,'use')";
+		String sql = "insert into foruse(stu_id, date, chain, mn_name,mn_price, f_use) values(?,?,?,?,?,'사용')";
 		String sql2 = "update student set stu_change = stu_change - ? where stu_id = ? ";
 
 		Connection conn = null;
@@ -170,7 +170,7 @@ public class ForuseDAO {
 
 		int stu_Recharge = Integer.parseInt(stu_price);
 
-		String sql = "insert into foruse(stu_id, date, mn_price, f_use) values(?,?,?,'Gift')";
+		String sql = "insert into foruse(stu_id, date, mn_price, f_use) values(?,?,?,'선물')";
 		String sql2 = "update student set stu_change = stu_change + ? where stu_id = ? ";
 		String sql3 = "update student set stu_change = stu_change - ? where stu_id = ? ";
 
@@ -231,7 +231,7 @@ public class ForuseDAO {
 
 		int stu_Recharge = Integer.parseInt(stu_price);
 
-		String sql = "insert into foruse(stu_id, date, mn_price, f_use) values(?,?,?,'Recharge')";
+		String sql = "insert into foruse(stu_id, date, mn_price, f_use) values(?,?,?,'충전')";
 		String sql2 = "update student set stu_change = stu_change + ? where stu_id = ? ";
 
 		Connection conn = null;
@@ -290,7 +290,7 @@ public class ForuseDAO {
 
 		// List<ForuseVO> totList = new ArrayList<ForuseVO>();
 
-		String sql = "select sum(mn_price) as foruseTotal from foruse where stu_id = ? and f_use='use' and date LIKE concat(?,'%')  ";
+		String sql = "select sum(mn_price) as foruseTotal from foruse where stu_id = ? and f_use='사용' and date LIKE concat(?,'%')  ";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;

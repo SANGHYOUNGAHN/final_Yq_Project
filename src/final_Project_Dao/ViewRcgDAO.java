@@ -48,7 +48,7 @@ public class ViewRcgDAO {
 	
 	public List<appViewRcgVO> appWeekCheckRcg(String and_id) {
 
-		String sql = "select * from foruse  where f_use='Recharge' and  stu_id = ? and date > date(subdate(curdate(), interval 7 day)) order by date";
+		String sql = "select * from foruse  where f_use='충전' and  stu_id = ? and date > date(subdate(curdate(), interval 7 day)) order by date";
 		List<appViewRcgVO> appWeekList = new ArrayList<appViewRcgVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -102,7 +102,7 @@ public class ViewRcgDAO {
 	// 한달짜리 리스트
 	public List<appViewRcgVO> appMonthCheckRcg(String and_id) {
 
-		String sql = "select * from foruse  where f_use='Recharge' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
+		String sql = "select * from foruse  where f_use='충전' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
 		List<appViewRcgVO> appMonthList = new ArrayList<appViewRcgVO>();
 		
 		
@@ -155,7 +155,7 @@ public class ViewRcgDAO {
 	// 3개월
 	public List<appViewRcgVO> appThMonthCheckRcg(String and_id) {
 
-		String sql = "select * from foruse  where f_use='Recharge' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
+		String sql = "select * from foruse  where f_use='충전' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
 		List<appViewRcgVO> appThMonthList = new ArrayList<appViewRcgVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -222,7 +222,7 @@ public class ViewRcgDAO {
 		HttpSession session = request.getSession();
 		
 		String loginUser1 = (String)session.getAttribute("loginUser1");
-		String sql = "select * from foruse  where f_use='recharge' and  stu_id = ? order by date desc Limit 7";
+		String sql = "select * from foruse  where f_use='충전' and  stu_id = ? order by date desc Limit 7";
 		List<ViewRcgVO> list = new ArrayList<ViewRcgVO>();
 		Connection conn =null;
 		PreparedStatement pstmt = null;
@@ -272,7 +272,7 @@ public class ViewRcgDAO {
 		HttpSession session = request.getSession();
 		
 		String loginUser1 = (String)session.getAttribute("loginUser1");
-		String sql = "select * from foruse where f_use='recharge' and stu_id= ? and date > date(subdate(curdate(), interval 7 day)) order by date";
+		String sql = "select * from foruse where f_use='충전' and stu_id= ? and date > date(subdate(curdate(), interval 7 day)) order by date";
 		List<ViewRcgVO> weeklist = new ArrayList<ViewRcgVO>();
 		Connection conn =null;
 		PreparedStatement pstmt = null;
@@ -322,7 +322,7 @@ public class ViewRcgDAO {
 		HttpSession session = request.getSession();
 		
 		String loginUser1 = (String)session.getAttribute("loginUser1");
-		String sql = "select * from foruse  where f_use='recharge' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
+		String sql = "select * from foruse  where f_use='충전' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
 		List<ViewRcgVO> mthlyList = new ArrayList<ViewRcgVO>();
 		Connection conn = null;
 		PreparedStatement pstmt =null;
@@ -370,7 +370,7 @@ public class ViewRcgDAO {
 		HttpSession session = request.getSession();
 		
 		String loginUser1 = (String)session.getAttribute("loginUser1");
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
+		String sql = "select * from foruse  where f_use='사용' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
 		List<ViewRcgVO> thMonthlyList = new ArrayList<ViewRcgVO>();
 		Connection conn = null;
 		PreparedStatement pstmt =null;

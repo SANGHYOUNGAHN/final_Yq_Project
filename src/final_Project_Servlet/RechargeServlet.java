@@ -122,7 +122,7 @@ public class RechargeServlet extends HttpServlet {
 		
 		mRVo.setRecharge_mn(Integer.parseInt(recharge_mn));
 		//String sql = "INSERT INTO recharge(stu_id, date, recharge_mn) VALUES (?,?,?)";
-		String sql1 = "INSERT INTO foruse(stu_id, date, mn_price, f_use) VALUES (?, ?, ?, 'recharge')";
+		String sql1 = "INSERT INTO foruse(stu_id, date, mn_price, f_use) VALUES (?, ?, ?, '충전')";
 		String sql2 = "UPDATE student SET stu_change = stu_change + ?  where stu_id = ?";	
 		
 		

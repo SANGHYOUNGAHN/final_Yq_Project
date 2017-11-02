@@ -49,7 +49,7 @@ public class ViewUseDAO {
 	// 일주일 짜리 리스트
 	public List<appViewUseVO> appWeekCheckUse(String and_id) {
 
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ? and date > date(subdate(curdate(), interval 7 day)) order by date";
+		String sql = "select * from foruse  where f_use='사용' and  stu_id = ? and date > date(subdate(curdate(), interval 7 day)) order by date";
 		List<appViewUseVO> appWeekList = new ArrayList<appViewUseVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -103,7 +103,7 @@ public class ViewUseDAO {
 	// 한달짜리 리스트
 	public List<appViewUseVO> appMonthCheckUse(String and_id) {
 
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
+		String sql = "select * from foruse  where f_use='사용' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
 		List<appViewUseVO> appMonthList = new ArrayList<appViewUseVO>();
 		
 		
@@ -156,7 +156,7 @@ public class ViewUseDAO {
 	// 3개월
 	public List<appViewUseVO> appThMonthCheckUse(String and_id) {
 
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
+		String sql = "select * from foruse  where f_use='사용' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
 		List<appViewUseVO> appThMonthList = new ArrayList<appViewUseVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -220,7 +220,7 @@ public class ViewUseDAO {
 		HttpSession session = request.getSession();
 
 		String loginUser1 = (String) session.getAttribute("loginUser1");
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ?  order by date desc Limit 7";
+		String sql = "select * from foruse  where f_use='사용' and  stu_id = ?  order by date desc Limit 7";
 		List<ViewUseVO> list = new ArrayList<ViewUseVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -274,7 +274,7 @@ public class ViewUseDAO {
 		HttpSession session = request.getSession();
 
 		String loginUser1 = (String) session.getAttribute("loginUser1");
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ? and date > date(subdate(curdate(), interval 7 day)) order by date";
+		String sql = "select * from foruse  where f_use='사용' and  stu_id = ? and date > date(subdate(curdate(), interval 7 day)) order by date";
 		List<ViewUseVO> weekList = new ArrayList<ViewUseVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -323,7 +323,7 @@ public class ViewUseDAO {
 		HttpSession session = request.getSession();
 
 		String loginUser1 = (String) session.getAttribute("loginUser1");
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
+		String sql = "select * from foruse  where f_use='사용' and  stu_id = ? and date > date(subdate(curdate(), interval 1 month)) order by date";
 		List<ViewUseVO> mthlyList = new ArrayList<ViewUseVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -372,7 +372,7 @@ public class ViewUseDAO {
 		HttpSession session = request.getSession();
 
 		String loginUser1 = (String) session.getAttribute("loginUser1");
-		String sql = "select * from foruse  where f_use='use' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
+		String sql = "select * from foruse  where f_use='사용' and  stu_id = ? and date > date(subdate(curdate(), interval 3 month)) order by date";
 		List<ViewUseVO> thMonthlyList = new ArrayList<ViewUseVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;

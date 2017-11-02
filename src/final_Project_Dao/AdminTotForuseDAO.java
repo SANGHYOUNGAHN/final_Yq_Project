@@ -48,7 +48,7 @@ public class AdminTotForuseDAO {
 
 	public List<ViewUseVO> appGetAward(String date, String chain) {
 
-		String sql = "select mn_name, count(*) as getAward from foruse where chain= ? and f_use='use' and date like concat(?,'%') group by mn_name order by getAward desc limit 5";
+		String sql = "select mn_name, count(*) as getAward from foruse where chain= ? and f_use='사용' and date like concat(?,'%') group by mn_name order by getAward desc limit 5";
 		List<ViewUseVO> appGetAwardList = new ArrayList<ViewUseVO>();
 
 		
@@ -98,7 +98,7 @@ public class AdminTotForuseDAO {
 
 	public List<ViewUseVO> appGetTot(String date, String chain) {
 
-		String sql = "select sum(mn_price) as getTotal from foruse where chain= ? and f_use = 'use' and date like concat(?,'%')";
+		String sql = "select sum(mn_price) as getTotal from foruse where chain= ? and f_use = '사용' and date like concat(?,'%')";
 
 		List<ViewUseVO> appGetTotList = new ArrayList<ViewUseVO>();
 
@@ -155,7 +155,7 @@ public class AdminTotForuseDAO {
 		HttpSession session = request.getSession();
 		List<ViewUseVO> insungTotList = new ArrayList<ViewUseVO>();
 
-		String sql = "select sum(mn_price) as insungTotal from foruse where chain='insung' and f_use='use' and date like concat(?,'%')";
+		String sql = "select sum(mn_price) as insungTotal from foruse where chain='인성관' and f_use='사용' and date like concat(?,'%')";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -196,7 +196,7 @@ public class AdminTotForuseDAO {
 
 		// String loginUser1 = (String)session.getAttribute("loginUser1");
 
-		String sql = "select sum(mn_price) as hwanTotal from foruse where chain='hwan' and f_use='use' and date like concat(?,'%')";
+		String sql = "select sum(mn_price) as hwanTotal from foruse where chain='환경과학대' and f_use='사용' and date like concat(?,'%')";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -238,7 +238,7 @@ public class AdminTotForuseDAO {
 
 		// String loginUser1 = (String)session.getAttribute("loginUser1");
 
-		String sql = "select sum(mn_price) as dormTotal from foruse where chain='dorm' and f_use='use' and  date like concat(?,'%')";
+		String sql = "select sum(mn_price) as dormTotal from foruse where chain='기숙사' and f_use='사용' and  date like concat(?,'%')";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -279,7 +279,7 @@ public class AdminTotForuseDAO {
 		HttpSession session = request.getSession();
 		List<ViewUseVO> insungList = new ArrayList<ViewUseVO>();
 
-		String sql = "select mn_name, count(*) as insungkwan from foruse where chain='insung' and f_use='use' and date like concat(?,'%') group by mn_name order by insungkwan desc limit 5";
+		String sql = "select mn_name, count(*) as insungkwan from foruse where chain='인성관' and f_use='사용' and date like concat(?,'%') group by mn_name order by insungkwan desc limit 5";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -320,7 +320,7 @@ public class AdminTotForuseDAO {
 
 		// String loginUser1 = (String)session.getAttribute("loginUser1");
 
-		String sql = "select mn_name, count(*) as hwankwadae from foruse where chain='hwan'and f_use='use' and date like concat(?,'%') group by mn_name order by hwankwadae desc limit 5";
+		String sql = "select mn_name, count(*) as hwankwadae from foruse where chain='환경과학대'and f_use='사용' and date like concat(?,'%') group by mn_name order by hwankwadae desc limit 5";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -361,7 +361,7 @@ public class AdminTotForuseDAO {
 
 		// String loginUser1 = (String)session.getAttribute("loginUser1");
 
-		String sql = "select mn_name, count(*) as dormitory from foruse where chain='dorm' and date like concat(?,'%') group by mn_name order by dormitory desc limit 5";
+		String sql = "select mn_name, count(*) as dormitory from foruse where chain='기숙사' and date like concat(?,'%') group by mn_name order by dormitory desc limit 5";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;

@@ -104,7 +104,7 @@ public class ForuseServlet extends HttpServlet {
 
 		
 		String loginUser1 = (String)session.getAttribute("loginUser1");
-		String sql = "insert into foruse(stu_id, date, mn_price, f_use) values (?, ?, 3500, 'use') ";
+		String sql = "insert into foruse(stu_id, date, mn_price, f_use) values (?, ?, 3500, '사용') ";
 		String sql2= "update student set stu_change = stu_change - 3500  where stu_id = ? ";
 		
 		Connection conn = null;

@@ -39,7 +39,7 @@ public class AdminIdSearchDAO {
 	//사용내역에서의 학번 검색
 	public int Use_stu_id_Check(String stu_id){
 		int result = -1;
-		String sql = "select * from foruse where f_use='use' and stu_id=? order by date desc";
+		String sql = "select * from foruse where f_use='사용' and stu_id=? order by date desc";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -76,7 +76,7 @@ public class AdminIdSearchDAO {
 	//사용내역 정보 가져오기(테이블)
 	public List<ForuseVO> useInfo (String stu_id) {
 		
-		String sql = "select * from foruse where f_use='use' and stu_id = ? order by date desc";
+		String sql = "select * from foruse where f_use='사용' and stu_id = ? order by date desc";
 		List<ForuseVO> list1 = new ArrayList<ForuseVO>();
 		
 		Connection conn = null;
@@ -116,7 +116,7 @@ public class AdminIdSearchDAO {
 	//충전내역에서의 학번 검색
 	public int Recharge_stu_id_Check(String stu_id){
 		int result = -1;
-		String sql = "select * from foruse where f_use='recharge' and stu_id=? order by date desc";
+		String sql = "select * from foruse where f_use='충전' and stu_id=? order by date desc";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -153,7 +153,7 @@ public class AdminIdSearchDAO {
 	//충전내역 정보 가져오기(테이블)
 	public List<ForuseVO> rechargeInfo (String stu_id) {
 		
-		String sql = "select * from foruse where f_use='recharge' and stu_id = ?  order by date desc";
+		String sql = "select * from foruse where f_use='충전' and stu_id = ?  order by date desc";
 		List<ForuseVO> list2 = new ArrayList<ForuseVO>();
 		
 		Connection conn = null;

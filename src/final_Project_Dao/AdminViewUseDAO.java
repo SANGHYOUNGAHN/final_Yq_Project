@@ -38,7 +38,7 @@ public class AdminViewUseDAO {
 	//쓴내역 보여주기
 	public List<ForuseVO> selectUse (HttpServletRequest request) {
 		
-		String sql = "select * from foruse where f_use='use' order by date desc";
+		String sql = "select * from foruse where f_use='사용' order by date desc";
 		List<ForuseVO> list1 = new ArrayList<ForuseVO>();
 		
 		Connection conn = null;
@@ -76,7 +76,7 @@ public class AdminViewUseDAO {
 	//충전내역
 	public List<ForuseVO> selectRecharge (HttpServletRequest request) {
 		
-		String sql = "select * from foruse where f_use='recharge' order by date desc";
+		String sql = "select * from foruse where f_use='충전' order by date desc";
 		List<ForuseVO> list2 = new ArrayList<ForuseVO>();
 		
 		Connection conn = null;
