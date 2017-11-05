@@ -17,7 +17,6 @@
     List<appViewUseVO> appfindList = vuDAO.appfindUse(and_id);
     
     
-
 	JSONArray jArr = new JSONArray();
 
 	for (int i = 0; i < appfindList.size(); i++) {
@@ -27,10 +26,10 @@
 		adminObj.put("chain", appfindList.get(i).getChain());
 		adminObj.put("mn_name", appfindList.get(i).getMn_name());
 		adminObj.put("mn_price",appfindList.get(i).getMn_price());
-		adminObj.put("f_use", appfindList.get(i).getMn_price());
+		adminObj.put("f_use", appfindList.get(i).getF_use());
 		jArr.add(adminObj);
-
 	}
+
 	out.print(jArr);
 
 

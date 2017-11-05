@@ -42,12 +42,12 @@ public class ViewUseDAO {
 	/*
 	 * 
 	 * Use AppServer (admin)
-	 * 
+	 * t
 	 * 
 	 */
 	public List<appViewUseVO> appfindUse(String and_id) {
 
-		String sql = "select * from foruse where stu_id= ?";
+		String sql = "select * from foruse where f_use = '사용' and stu_id= ? ";
 
 		List<appViewUseVO> appfindList = new ArrayList<appViewUseVO>();
 		Connection conn = null;
@@ -56,7 +56,6 @@ public class ViewUseDAO {
 
 		try {
 
-			conn = getConnection();
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 
