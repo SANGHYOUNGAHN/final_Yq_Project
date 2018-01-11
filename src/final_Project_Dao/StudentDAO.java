@@ -1,6 +1,6 @@
 package final_Project_Dao;
 
-import java.io.PrintWriter;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import final_Project_Vo.StudentVO;
 

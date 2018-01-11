@@ -52,7 +52,6 @@ public class StudentLoginServlet extends HttpServlet {
 		StudentDAO mDao = StudentDAO.getInstance();
 		int result = mDao.userCheck(stu_id, stu_pw);
 
-		String jsonData = null;
 		if (result == 1) {
 			HttpSession session = request.getSession();
 			StudentVO mVo = mDao.getMember(stu_id);
@@ -74,82 +73,3 @@ public class StudentLoginServlet extends HttpServlet {
 
 	}
 }
-
-/*
- * 
- * request.setCharacterEncoding("utf-8");
- * response.setCharacterEncoding("utf-8");
- * 
- * PrintWriter out =response.getWriter(); JSONObject jObject = new JSONObject();
- * JSONArray jArray = new JSONArray(); String jsonData =null;
- * 
- * 
- * 
- * try{
- * 
- * DBConnectionTest(jArray,request);
- * 
- * 
- * }catch(ClassNotFoundException e){
- * 
- * e.printStackTrace();
- * 
- * }catch(SQLException e) { e.printStackTrace(); } jObject.put("Mdata", jArray);
- * 
- * jsonData = jObject.toString(); System.out.println(jObject.toString());
- * 
- * out.print(jsonData);
- * 
- * 
- * }
- * 
- * public void DBConnectionTest(JSONArray jArray, HttpServletRequest request)
- * throws ClassNotFoundException, SQLException { Connection conn =
- * getConnection(); PreparedStatement pstmt = null; ResultSet rs = null;
- * 
- * String stu_id = request.getParameter("stu_id"); String stu_pw =
- * request.getParameter("stu_pw");
- * 
- * 
- * 
- * 
- * String sql = "select * from student where stu_id=? and stu_pw=?"; try{
- * System.out.println("mysql 접속됨"); pstmt = conn.prepareStatement(sql);
- * pstmt.setString(1, stu_id); pstmt.setString(2, stu_pw); rs =
- * pstmt.executeQuery();
- * 
- * int i = 0; while(rs.next()){ JSONObject sObject = new JSONObject();
- * //System.out.println(rs.getString("stu_id"));
- * //System.out.println(rs.getString("stu_pw")); sObject.put("stu_id",
- * rs.getString("stu_id")); sObject.put("stu_pw", rs.getString("stu_pw"));
- * jArray.add(sObject); } } catch(Exception e){ e.printStackTrace(); }finally{
- * try{ pstmt.close(); conn.close(); rs.close(); System.out.println("mysql 끝");
- * }catch(SQLException e){ e.printStackTrace(); } } }
- * 
- * private Connection getConnection() throws ClassNotFoundException,
- * SQLException { Class.forName("org.gjt.mm.mysql.Driver"); //데이터베이스 설정
- * Connection c =
- * DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root",
- * "admin"); return c; }
- * 
- * 
- * /* public String getJSON(String stu_id, String stu_pw){
- * 
- * if(stu_id==null) stu_id=""; if(stu_pw==null) stu_pw="";
- * 
- * StringBuffer resultJson = new StringBuffer("");
- * resultJson.append("{\resultJson\":["); StudentDAO sDao = new StudentDAO();
- * ArrayList<StudentVO> stuList = sDao.idPw(stu_id, stu_pw);
- * 
- * for(int i = 0; i<stuList.size(); i++){ resultJson.append( "[{\"value\": \""
- * +stuList.get(i).getStu_id() +stuList.get(i).getStu_pw() + "\"}," );
- * //resultJson.append( "{\"value\": \"" +stuList.get(i).getStu_id()
- * +stuList.get(i).getStu_pw() + // "\"}," ); resultJson.append(
- * "{\"value\": \"" +stuList.get(i).getStu_id() +stuList.get(i).getStu_pw() +
- * "\"}," ); // resultJson.append( " {\"value\": \"" +stuList.get(i).getStu_id()
- * +stuList.get(i).getStu_pw() + // "\"}]," );
- * 
- * } resultJson.append("]}"); return resultJson.toString(); }
- */
-
-// }
