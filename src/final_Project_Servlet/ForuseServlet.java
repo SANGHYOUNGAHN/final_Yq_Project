@@ -71,7 +71,13 @@ public class ForuseServlet extends HttpServlet {
 
 		
 		String loginUser1 = (String)session.getAttribute("loginUser1");
-		String sql= "update student set stu_change =If(stu_change < 3500 , stu_change , stu_change- 3500) where stu_id = ?" ;
+		if(loginUser1.equals(false)){
+			System.out.println("결제되지않습니다.");
+		}
+		
+		String sql = "update student set stu_change= stu_change-3500 where stu_id=?";
+		//System.out.println("결제가 되지 않습니다");
+		//String sql= "update student set stu_change =If(stu_change < 3500 , stu_change , stu_change- 3500) where stu_id = ?" ;
 		String sql2 = "insert into foruse(stu_id, date, mn_price, f_use) values (?, ?, 3500, '사용') ";
 		
 
@@ -88,7 +94,6 @@ public class ForuseServlet extends HttpServlet {
 		
 		try{
 			conn = getConnection1();
-			
 			conn.setAutoCommit(false);
 			
 			pstmt = conn.prepareStatement(sql);
