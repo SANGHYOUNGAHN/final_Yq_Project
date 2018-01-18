@@ -52,12 +52,6 @@ public class ForuseServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//시도 1차 
-		//HttpSession session = request.getSession();
-		//String stu_id = (String)request.getAttribute("stu_id");
-		
-		//시도 2차
-		
 	}
 
 	/**
@@ -71,21 +65,15 @@ public class ForuseServlet extends HttpServlet {
 
 		
 		String loginUser1 = (String)session.getAttribute("loginUser1");
-		if(loginUser1.equals(false)){
-			System.out.println("결제되지않습니다.");
-		}
 		
 		String sql = "update student set stu_change= stu_change-3500 where stu_id=?";
-		//System.out.println("결제가 되지 않습니다");
 		//String sql= "update student set stu_change =If(stu_change < 3500 , stu_change , stu_change- 3500) where stu_id = ?" ;
 		String sql2 = "insert into foruse(stu_id, date, mn_price, f_use) values (?, ?, 3500, '사용') ";
 		
-
 		Connection conn = null;
 		PreparedStatement pstmt =null;
 		PreparedStatement pstmt1 = null;
 
-		
 		Date d = new Date();
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String a = df.format(d);
@@ -93,26 +81,24 @@ public class ForuseServlet extends HttpServlet {
 		StudentDAO sDao = StudentDAO.getInstance();
 		
 		try{
+			//int key = 0;
 			conn = getConnection1();
 			conn.setAutoCommit(false);
+			
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt1= conn.prepareStatement(sql2);
 			
 			
 			pstmt.setString(1, loginUser1);
-		
+			
 			pstmt1.setString(1, loginUser1);
 			pstmt1.setString(2, a);
 			
-			
 			pstmt.executeUpdate();
 			pstmt1.executeUpdate();
-			
-			
-			
+			System.out.println("결제가 완료되었습니다.");
 			conn.commit();
-			
 			
 			StudentVO sVo = sDao.getMember(loginUser1);
 			session.setAttribute("loginUser", sVo);
@@ -120,6 +106,7 @@ public class ForuseServlet extends HttpServlet {
 			
 		}catch(Exception e){
 			try{
+				System.out.println("결제가 실패하였습니다.");
 				conn.rollback();
 			}catch(SQLException e1){
 				e1.printStackTrace();
