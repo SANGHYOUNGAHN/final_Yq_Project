@@ -1,0 +1,22 @@
+
+@charset "UTF-8";
+
+
+html, body {
+max-width: 100%;
+overflow-x: hidden;
+}
+
+
+.navbar{
+	background-color: #00b3b3;
+	
+}
+
+.navbar-brand {
+	color: white;
+}
+
+.nav li a {
+	color : white;
+}

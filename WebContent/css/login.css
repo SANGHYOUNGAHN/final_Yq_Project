@@ -1,0 +1,42 @@
+
+.Login_Body{
+    margin: 150px 0 0 0;
+	
+
+}
+.student_body{
+	border: 1px solid #C8C8C8;
+	shadow: 5px 10px #fFFFFF;
+}
+
+.Yq_login{
+	
+	background-color: white;
+	
+}
+
+.box_header {
+	text-align:center;
+}
+
+.student-body{
+	border: 1px solid #C8C8C8;
+}
+
+
+.student_btn{
+	margin: 50px 0 0 0 ;
+}
+
+.student_btn input {
+	
+	
+	border-radius: 10px;
+	border: 2px solid #00b3b3;
+	background-color:#00b3b3;
+	color:white;
+}
+
+.student_btn #login_Cancel{
+	margin: 0 0 0 30px;
+}
