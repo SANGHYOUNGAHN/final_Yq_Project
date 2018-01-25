@@ -1,12 +1,7 @@
 
 .Login_Body{
     margin: 150px 0 0 0;
-	
 
-}
-.student_body{
-	border: 1px solid #C8C8C8;
-	shadow: 5px 10px #fFFFFF;
 }
 
 .Yq_login{
@@ -19,14 +14,43 @@
 	text-align:center;
 }
 
-.student-body{
+.student_body{
 	border: 1px solid #C8C8C8;
+	border-radius: 10px;
+	margin: 10px 0 0 0 ;
+}
+
+.login_Section a:hover {
+	
+	text-decoration: none;
+}
+.student_input{
+	margin: 30px 0 0 0 ;
 }
 
 
 .student_btn{
 	margin: 50px 0 0 0 ;
 }
+
+.student_btn #login_Cancel {
+	margin: 20px 0 0 0 ;
+}
+
+#admin_login{
+	display: none;
+}
+
+.admin_input{
+	margin: 30px 0 0 0 ;
+}
+#login-success{
+	display: block;
+}
+.student_input{
+	display:block;
+}
+
 
 .student_btn input {
 	
@@ -37,6 +61,3 @@
 	color:white;
 }
 
-.student_btn #login_Cancel{
-	margin: 0 0 0 30px;
-}

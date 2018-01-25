@@ -57,73 +57,79 @@
 				<div class='Yq_login col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3'>
 					<div class='login panel-login'>
 						<div class='box_header panel-heading'>
-							<div class='student_Section col-lg-6  col-sm-6 col-xs-6'>
-								<a href="#" class="active" id="login-form-link">Student</a>
+							<div class='login_Section col-lg-6  col-sm-6 col-xs-6'>
+								<a href='#' class='active' id="student_Section">Student</a>
 							
 							</div>
-							<div class='admin_Section col-lg-6 col-sm-6 col-xs-6'>
-								<a href="#" class="active" id="login-form-link">Admin</a>
+							<div class='login_Section col-lg-6 col-sm-6 col-xs-6'>
+								<a href='#' id="admin_Section">Admin</a>
 							</div>
 						</div>
 						<hr>
-					</div> 			
-					
+					</div> 		
 					
 					<div class='student_body panel-body'>
 						<div class='row'>
-							<div class='student_input col-lg-8 col-lg-offset-2'>
-								<form method="post" action="Login.do" name="login_success" id="login_success">
-									<div class="student_login form-group">
-										<input type="text" name="stu_id"  id="stu_id" tabindex="1" class="form-control" placeholder="학번" >
-									</div>
-									<div class="student_login form-group">
-										<input type="password" name="stu_pw" id="stu_pw" tabindex="2" class="form-control" placeholder="비밀번호">
-									</div>
-							</div>
+							<form id='login-success' action='Login.do' method='post' role='form'>
+								<div class='student_input form-group col-lg-8 col-lg-offset-2'>
+									<input type='text' name='stu_id' id='stu_id' tabindex='1' class='form-control' placeholder='학번' />
+								</div>
+								<div class='form-group col-lg-8 col-lg-offset-2'>
+									<input type='password' name='stu_pw' id='stu_pw' tabindex='2' class='form-control' placeholder='패스워드' />		
+								</div>
+								
+								<div class='student_btn form-group col-lg-4 col-lg-offset-4'>
+					
+									<input type='submit' id='login_Button' value='로그인' class='form-control' onclick='return loginCheck()'/>
+									
+									<input type='reset' id='login_Cancel' value='취소'class='form-control' />
+								</div>
+							</form>
 							
-							<div class='student_btn form-group col-lg-8 col-lg-offset-4'>
-			
-									<input type="submit" id="login_Button" value="로그인" onclick="return loginCheck()">
-									<input type="reset"  id='login_Cancel' value="취소">
-								</form>	
-							</div>
-						
-						
-						
-							<div class='admin_body panel-body'>
-								<div class='row'>
-							<div class='admin_input col-lg-8 col-lg-offset-2'>
-								<form method="post" action="AdminLogin.do" name="frm" id="login_success">
-									<div class="admin_login form-group">
-										<input type="text" name="ad_id"  value='${ad_id}' tabindex="1" class="form-control" placeholder="학번" >
-									</div>
-									<div class="admin_login form-group">
-										<input type="password" name="ad_pw"  tabindex="2" class="form-control" placeholder="비밀번호">
-									</div>
-							</div>
-							
-							<div class='admin_btn form-group col-lg-8 col-lg-offset-4'>
-			
-									<input type="submit" id="login_Button" value="로그인" onclick="return loginCheck()">
-									<input type="reset"  id='login_Cancel' value="취소">
-								</form>	
-							</div>
-							
-						
-																				
-						</div>
-							
-																				
-						</div>
-					</div>	
-				</div>
-			</div>
-		</div>
-	</div>
+							<form id='admin_login' action='AdminLogin.do' method='post' role='form'>
+								<div class='admin_input form-group col-lg-8 col-lg-offset-2'>
+									<input type='text' name='ad_id' id='ad_id' tabinbox='1' class='form-control' placeholder='관리자번호' />
+								</div>
+								<div class='form-group col-lg-8 col-lg-offset-2'>
+									<input type='password' name='ad_pw' tabinbox='2' class='form-control' placeholder='관리자 비밀번호' />
+								</div>
+																<div class='student_btn form-group col-lg-4 col-lg-offset-4'>
+					
+									<input type='submit' id='login_Button' value='로그인' class='form-control' onclick='return loginCheck()'/>
 	
+									<input type='reset' id='login_Cancel' value='취소'class='form-control' />
+								</div>
+							
+							</form>
+						</div>
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+						
+
+		
+							
+							
+				</div>			
+			</div>														
+		</div>		
+	</div>
+		 
+		
 	
 
 
 	
 </body>
+
+<script src='js/login.js'></script>
 </html>
