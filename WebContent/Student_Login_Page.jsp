@@ -21,12 +21,12 @@
 
 
 <script src="js/bootstrap.min.js"></script>
-
-
 <script type="text/javascript" src="script/student.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
+
+	
 <body>
 	<div class='YqLogin_header'>
 		<nav class='navbar navbar-fixed-top'>
@@ -50,7 +50,7 @@
 	      </div>
     	</nav>
   	</div>
-
+  	  
 	<div class='Login_Body'>
 		<div class='login_page container'>
 			<div class='row'>
@@ -58,15 +58,16 @@
 					<div class='login panel-login'>
 						<div class='box_header panel-heading'>
 							<div class='login_Section col-lg-6  col-sm-6 col-xs-6'>
-								<a href='#' class='active' id="student_Section">Student</a>
+								<a href='#' id="student_Section">학생</a>
 							
 							</div>
 							<div class='login_Section col-lg-6 col-sm-6 col-xs-6'>
-								<a href='#' id="admin_Section">Admin</a>
+								<a href='#' id="admin_Section">관리자</a>
 							</div>
 						</div>
 						<hr>
 					</div> 		
+					
 					
 					<div class='student_body panel-body'>
 						<div class='row'>
@@ -103,14 +104,13 @@
 							</form>
 						</div>
 					</div>
+				
 					
 					
 					
 					
 					
-					
-					
-					
+		
 					
 					
 					
@@ -123,8 +123,10 @@
 			</div>														
 		</div>		
 	</div>
-		 
+			
+					
 		
+	
 	
 
 
