@@ -13,8 +13,7 @@ import javax.sql.DataSource;
 
 import final_Project_Servlet.AdminInsertMenuServlet;
 import final_Project_Vo.AdminInsertVO;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+
 
 public class AdminInsertMenuDAO {
 
@@ -41,9 +40,7 @@ public class AdminInsertMenuDAO {
 	
 	
 	/*
-	 * app -> server (insert menu)
-	 * 
-	 * 
+	 * app -> server (insert menu) 
 	 */
 	
 	public void AppInsertMenu (String mn_id, String mn_date, String mn_name,
